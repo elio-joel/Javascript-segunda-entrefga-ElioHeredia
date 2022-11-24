@@ -1,4 +1,4 @@
-//Construimos la clase y sus objetos
+
 class TipoDeObjeto {
 	constructor (hogar, bazar, deco){
 		this.hogar = hogar;
@@ -25,9 +25,7 @@ const decoObjeto = new TipoDeObjeto (
 	{nombre: "Lampara de sal $" , precio: 8000},
 	{nombre: "Cascada de humo ceramica $" , precio: 9000})
 
-//Colocamos los datos de los objetos dentro de arrays para facilitar su manipulación en el DOM. De esta
-//manera combinamos la facilidad que tienen los objetos para acciones tales como cambiar el precio mediante método
-//mientras a su vez mantenemos las funciones del DOM simples, sin tener que manipular propiedades de objeto en ellas
+
 function arrayzador (array, objeto){
 	array.push(objeto.hogar.nombre + objeto.hogar.precio)
 	array.push(objeto.bazar.nombre + objeto.bazar.precio)
@@ -40,7 +38,7 @@ const deco = [] ; arrayzador(deco, decoObjeto)
 let carrito =[]
 let precioFinal = 0
 
-//Agregamos las listas de precios al DOM
+
 const divListaPrecios = document.createElement("div")
 divListaPrecios.setAttribute("style", "display:flex;justify-content:space-evenly")
 document.body.append(divListaPrecios)
@@ -53,7 +51,7 @@ function creadorDeCuadros (eleccion){
 	divListaPrecios.appendChild(eleccionCuadro)}
 creadorDeCuadros(hogar) ; creadorDeCuadros(bazar) ; creadorDeCuadros(deco)
 
-//Agregamos al DOM los div de los elementos inferiores
+
 const divResultados = document.createElement("div")
 divResultados.setAttribute("style", "display:flex;justify-content:space-evenly;")
 document.body.append(divResultados)
@@ -73,7 +71,7 @@ divPrecioFinal.setAttribute("style", "border: black 1px solid;width:25%;border-r
 "height:100px;display:flex;justify-content:center;align-items:center")
 divResultados.appendChild(divPrecioFinal)
 
-//Agregamos un evento a los botones para que reaccionen al click
+
 let listaCarrito = document.createElement("ul")
 listaCarrito.setAttribute("style", "list-style:none;")
 divCarrito.appendChild(listaCarrito)
@@ -89,7 +87,7 @@ function botonera (eleccion) {
 }
 botonera(hogar) ; botonera(bazar) ; botonera(deco)
 
-//Agregamos un botón para ordenar de menor a mayor
+
 const sorteador = document.createElement("button")
 sorteador.innerHTML = "Presione para ordenar por precio de menor a mayor"
 divBotones.appendChild(sorteador)
@@ -100,7 +98,7 @@ sorteador.addEventListener("click", function(){
 	divCarrito.appendChild(listaCarrito)
 })
 
-//Agregamos un botón para mostrar el precio final
+
 const textoPrecioFinal = document.createElement("h2")
 textoPrecioFinal.innerHTML = `El precio final es $${precioFinal}`
 divPrecioFinal.appendChild(textoPrecioFinal)
